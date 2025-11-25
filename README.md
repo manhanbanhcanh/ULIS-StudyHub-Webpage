@@ -12,4 +12,4 @@ You can find our progress and structure for this project [here](https://www.noti
 
 ## 📌 Notes
 - This project is still in early stages.
-- I don't have anything internal informations about ULIS and their trainning programs.
+- I don't have any internal informations about ULIS and their trainning programs.
