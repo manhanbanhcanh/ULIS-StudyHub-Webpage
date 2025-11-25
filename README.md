@@ -1,0 +1,15 @@
+# ULIS StudyHub (Work in Progress)
+
+This project is currently **under development**, and many features are still being implemented.
+
+## 🚧 Status
+- Work in progress
+- Core functionalities incomplete
+- Structure and features subject to change
+
+## ✨ Planning
+You can find our progress and structure for this project [here](https://www.notion.so/ULIS-StudyHub-Project-2b6350b3eff080d4a9cac858df06e7d1?source=copy_link).
+
+## 📌 Notes
+- This project is still in early stages.
+- I don't have anything internal informations about ULIS and their trainning programs.
