@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ULIS StudyHub</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ULIS StudyHub</title>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+  />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="sidebar-root"></div>
-    <div id="header-root"></div>
-    <div id="footer-root"></div>
 
-    <!-- Optional legacy JS -->
-    <script src="script.js"></script>
+  <header>
+    <div class="menu-icon" id="menu-icon"><i class="bi bi-list"></i></div>
+    <div class="logo"><img src="img/logo.png" alt="ULIS StudyHub"></div>
+    <div class="profile"><i class="bi bi-person"></i></div>
+  </header>
 
-    <!-- React entry point -->
-    <script type="module" src="/src/main.jsx"></script>
+  <aside class="sidebar" id="sidebar">
+    <div class="close-btn" id="close-btn"><i class="bi bi-x-lg"></i></div>
+    <ul>
+      <li><i class="bi bi-speedometer2"></i> Dashboard</li>
+      <li><i class="bi bi-journal-text"></i> Notes</li>
+      <li><i class="bi bi-card-list"></i> Flashcards</li>
+      <li><i class="bi bi-folder2-open"></i> Resources</li>
+    </ul>
+  </aside>
+
+  <div class="overlay" id="overlay"></div>
+
+  <main>
+    <h1>Welcome to ULIS StudyHub</h1>
+    <p>Your resources, notes, and flashcards in one place.</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ULIS StudyHub</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
