@@ -1,0 +1,8 @@
+/* Merriweather and Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* Color variables */
+:root{
+    --background-color: #f3f0e7;
+    --text-color: #7a94c2;
+}
