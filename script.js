@@ -94,3 +94,90 @@ document
   .addEventListener("mouseleave", startAutoPlay);
 
 startAutoPlay();
+
+// Typewriter thing – TỐI ƯU BẰNG requestAnimationFrame
+const typewriter = document.querySelector(".typewriter");
+if (typewriter) {
+  const text = typewriter.getAttribute("data-text");
+  typewriter.textContent = "";
+  let i = 0;
+  function typeStep() {
+    if (i < text.length) {
+      typewriter.textContent += text[i];
+      i++;
+      requestAnimationFrame(typeStep);
+    }
+  }
+  requestAnimationFrame(typeStep);
+}
+
+// Cirle reveal anim + scroll
+const progressCircles = document.querySelectorAll(".circle-progress");
+
+const progressObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const circle = entry.target.querySelector("circle:nth-child(2)");
+        const percent = entry.target.getAttribute("data-percent");
+        const offset = 251 - (251 * percent) / 100;
+        circle.style.strokeDashoffset = offset;
+        entry.target.querySelector("span").textContent = percent + "%";
+
+        // Animate feature bubbles
+        entry.target.closest(".feature-bubble")?.style &&
+          setTimeout(() => {
+            entry.target.closest(".feature-bubble").style.opacity = "1";
+            entry.target.closest(".feature-bubble").style.transform =
+              "translateY(0)";
+          }, entry.target.getAttribute("data-delay"));
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+
+progressCircles.forEach((circle) => {
+  // SVG circle
+  circle.innerHTML = `
+    <svg width="80" height="80">
+      <circle cx="40" cy="40" r="36" />
+      <circle cx="40" cy="40" r="36" stroke-dasharray="251" stroke-dashoffset="251"/>
+    </svg>
+    <span></span>
+  `;
+  progressObserver.observe(circle);
+});
+
+// Reveal animation
+const revealElements = document.querySelectorAll(
+  ".reveal-left, .reveal-right, .fade-up, .issue-list li"
+);
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+
+        if (entry.target.tagName === "LI") {
+          const delay = entry.target.getAttribute("data-delay") || 0;
+          setTimeout(() => {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateX(0)";
+          }, delay);
+        }
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+document
+  .querySelectorAll(
+    ".reveal-left, .reveal-right, .fade-up, .issue-list li, .final-message"
+  )
+  .forEach((el) => {
+    revealObserver.observe(el);
+  });
+
+revealElements.forEach((el) => revealObserver.observe(el));
