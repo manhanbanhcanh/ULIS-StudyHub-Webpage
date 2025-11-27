@@ -6,6 +6,18 @@
     <title>ULIS StudyHub</title>
     <link rel="icon" type="image/x-icon" href="/img/logo.png" />
     <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+      as="style"
+    />
+    <link
+      rel="preload"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      as="style"
+    />
+    <link rel="preload" href="style.css" as="style" />
+    <link rel="preload" href="script.js" as="script" />
+    <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
@@ -15,7 +27,9 @@
     <!-- HEADER -->
     <header>
       <div class="menu-icon" id="menu-icon"><i class="bi bi-list"></i></div>
-      <div class="logo"><img src="img/logo.png" alt="ULIS StudyHub" /></div>
+      <div class="logo">
+        <img src="img/logo.png" alt="ULIS StudyHub" loading="lazy" />
+      </div>
       <div class="profile"><i class="bi bi-person-circle"></i></div>
     </header>
 
@@ -229,6 +243,93 @@
       </div>
     </section>
 
+    <!-- GOALS SECTION -->
+    <section class="goals-section">
+      <div class="container">
+        <div class="section-header reveal-fade">
+          <h2>Mục tiêu & Kế hoạch dự án</h2>
+          <p class="subtitle">
+            Đưa ULIS StudyHub đến gần hơn với mọi sinh viên ULIS
+          </p>
+        </div>
+
+        <div class="goals-grid">
+          <!-- Goal 1 -->
+          <div class="goal-card" data-delay="0">
+            <div class="goal-icon"><i class="bi bi-calendar-range"></i></div>
+            <h3>Thời gian thực hiện</h3>
+            <p class="highlight-text">03 tháng</p>
+            <p>Từ <strong>01/11/2025</strong> → <strong>01/02/2026</strong></p>
+          </div>
+
+          <!-- Goal 2 -->
+          <div class="goal-card" data-delay="150">
+            <div class="goal-icon"><i class="bi bi-currency-dollar"></i></div>
+            <h3>Kinh phí đề xuất</h3>
+            <p class="highlight-text">10.280.000 VNĐ</p>
+            <p>Hỗ trợ từ Trường Đại học Ngoại ngữ – ĐHQGHN</p>
+          </div>
+
+          <!-- Goal 3 -->
+          <div class="goal-card" data-delay="300">
+            <div class="goal-icon"><i class="bi bi-people"></i></div>
+            <h3>Đối tượng thụ hưởng</h3>
+            <p class="highlight-text">Sinh viên năm 1 & năm 2</p>
+            <p>
+              Những bạn đang gặp khó khăn trong việc tiếp cận tài liệu, mẹo học,
+              học bổng và các hoạt động ngoại khóa
+            </p>
+          </div>
+
+          <!-- Goal 4 -->
+          <div class="goal-card" data-delay="450">
+            <div class="goal-icon"><i class="bi bi-rocket"></i></div>
+            <h3>Mục tiêu cốt lõi</h3>
+            <p class="highlight-text">Xây dựng nền tảng học tập thân thiện</p>
+            <p>
+              Giao diện hiện đại, dễ sử dụng, phù hợp với sinh viên ULIS – giúp
+              tiếp cận tài nguyên nhanh chóng & hiệu quả
+            </p>
+          </div>
+        </div>
+
+        <!-- Chi tiết kinh phí sử dụng -->
+        <div class="budget-details reveal-fade" data-delay="600">
+          <h3>Kinh phí sẽ được sử dụng cho</h3>
+          <ul class="budget-list">
+            <li>
+              <i class="bi bi-check2-circle"></i>
+              <span>Khảo sát nhu cầu thực tế của sinh viên</span>
+            </li>
+            <li>
+              <i class="bi bi-check2-circle"></i>
+              <span>Biên soạn & thẩm định học liệu chất lượng cao</span>
+            </li>
+            <li>
+              <i class="bi bi-check2-circle"></i>
+              <span>Thiết kế giao diện và tính năng nền tảng</span>
+            </li>
+            <li>
+              <i class="bi bi-check2-circle"></i>
+              <span>Đánh giá thử nghiệm trước khi vận hành chính thức</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="final-goal-message">
+          <p>
+            Chúng mình tin rằng chỉ với
+            <span class="highlight">10.280.000 VNĐ</span> và
+            <span class="highlight">3 tháng nỗ lực</span><br />
+            <strong
+              >ULIS StudyHub sẽ thay đổi cách hàng nghìn sinh viên ULIS học tập
+              và phát triển!</strong
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="footer-minimal">
       <div class="container footer-content">
@@ -273,6 +374,6 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>

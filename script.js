@@ -181,3 +181,51 @@ document
   });
 
 revealElements.forEach((el) => revealObserver.observe(el));
+
+//========== GOAL ==========
+
+document
+  .querySelectorAll(
+    ".reveal-left, .reveal-right, .fade-up, .issue-list li, .final-message, .reveal-fade"
+  )
+  .forEach((el) => {
+    revealObserver.observe(el);
+  });
+
+const goalCards = document.querySelectorAll(".goal-card");
+
+const goalObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add("revealed");
+        }, i * 150); // stagger effect – từng cái hiện lần lượt
+        goalObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+
+goalCards.forEach((card) => goalObserver.observe(card));
+
+const finalGoalMessage = document.querySelector(".final-goal-message");
+
+if (finalGoalMessage) {
+  const finalObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add("revealed");
+          }, 300); // delay nhẹ cho đẹp
+          finalObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  finalObserver.observe(finalGoalMessage);
+}
