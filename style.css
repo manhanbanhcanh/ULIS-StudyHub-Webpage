@@ -922,6 +922,309 @@ header .logo img {
   }
 }
 
+/* ===================== CONTACT SECTION  ===================== */
+.contact-section {
+  padding: 10rem 2rem 8rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.08" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96V320H0Z"/></svg>')
+    bottom center no-repeat;
+  background-size: cover;
+  pointer-events: none;
+}
+
+.contact-wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.contact-content {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1.2s ease;
+}
+
+.contact-content.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-content h2 {
+  font-family: "Merriweather", serif;
+  font-size: 3.4rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(120deg, #fff, #a0c4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-subtitle {
+  font-size: 1.35rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  opacity: 0.95;
+}
+
+.contact-info {
+  margin-bottom: 3rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  padding: 0.8rem 0;
+  transition: all 0.4s ease;
+}
+
+.info-item:hover {
+  transform: translateX(10px);
+  color: #a0c4ff;
+}
+
+.info-item i {
+  font-size: 1.6rem;
+  color: #a0c4ff;
+}
+
+.contact-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  color: #667eea;
+  padding: 1.3rem 2.8rem;
+  border-radius: 50px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-cta-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.contact-cta-btn:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  color: white;
+  background: #a0c4ff;
+}
+
+.contact-cta-btn:hover i {
+  transform: scale(1.3);
+  color: white;
+}
+
+.contact-cta-btn:hover::before {
+  transform: translateX(100%);
+}
+
+.contact-cta-btn i {
+  font-size: 1.8rem;
+  transition: all 0.4s ease;
+}
+
+/* Floating cards animation */
+.contact-visual {
+  position: relative;
+  height: 460px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.floating-card {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+  color: white;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  pointer-events: none; /* không cho click/kéo */
+  animation: floatRandom 18s infinite linear;
+  will-change: transform;
+}
+
+.floating-card i {
+  animation: rotateRandom 12s infinite linear;
+}
+
+.floating-card.card-1 {
+  top: 12%;
+  left: 14%;
+  animation: float1 20s infinite ease-in-out;
+}
+.floating-card.card-2 {
+  top: 48%;
+  right: 12%;
+  animation: float2 24s infinite ease-in-out;
+}
+.floating-card.card-3 {
+  bottom: 18%;
+  left: 28%;
+  animation: float3 22s infinite ease-in-out;
+}
+
+@keyframes float1 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(60px, -40px) rotate(90deg);
+  }
+  50% {
+    transform: translate(-30px, 50px) rotate(180deg);
+  }
+  75% {
+    transform: translate(40px, 30px) rotate(270deg);
+  }
+}
+@keyframes float2 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(-50px, -60px) rotate(120deg);
+  }
+  66% {
+    transform: translate(70px, 40px) rotate(240deg);
+  }
+}
+@keyframes float3 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(50px, -50px) rotate(80deg);
+  }
+  40% {
+    transform: translate(-60px, 60px) rotate(160deg);
+  }
+  60% {
+    transform: translate(40px, -30px) rotate(240deg);
+  }
+  80% {
+    transform: translate(-40px, 40px) rotate(320deg);
+  }
+}
+
+@keyframes rotateRandom {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .contact-visual {
+    height: 380px;
+  }
+  .floating-card {
+    width: 80px;
+    height: 80px;
+    font-size: 2.3rem;
+  }
+}
+@media (max-width: 480px) {
+  .contact-visual {
+    height: 320px;
+  }
+  .floating-card {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+}
+
+/* ===================== COPY TO CLIPBOARD TOAST ===================== */
+.copy-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(109, 148, 197, 0.95);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.copy-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.copy-toast i {
+  font-size: 1.4rem;
+  animation: tick 0.6s ease-in-out;
+}
+
+@keyframes tick {
+  0% {
+    transform: scale(0) rotate(-45deg);
+  }
+  70% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
 /* ===================== FOOTER MINIMAL ===================== */
 .footer-minimal {
   background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);

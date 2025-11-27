@@ -229,3 +229,66 @@ if (finalGoalMessage) {
 
   finalObserver.observe(finalGoalMessage);
 }
+
+// ===== CONTACT SECTION REVEAL =====
+const contactContent = document.querySelector(".contact-content");
+if (contactContent) {
+  const contactObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          contactObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+  contactObserver.observe(contactContent);
+}
+
+// ===== CLICK TO COPY INFO ITEMS + TOAST NOTIFICATION =====
+document.querySelectorAll(".info-item").forEach((item) => {
+  item.style.cursor = "pointer";
+  item.style.transition = "all 0.3s ease";
+
+  item.addEventListener("click", () => {
+    const textToCopy = item.querySelector("span").textContent.trim();
+
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        item.style.transform = "scale(0.95)";
+        setTimeout(() => (item.style.transform = ""), 150);
+
+        let toast = document.querySelector(".copy-toast");
+        if (!toast) {
+          toast = document.createElement("div");
+          toast.className = "copy-toast";
+          toast.innerHTML = `<i class="bi bi-check2-circle"></i> Đã copy: ${textToCopy}`;
+          document.body.appendChild(toast);
+        } else {
+          toast.innerHTML = `<i class="bi bi-check2-circle"></i> Đã copy: ${textToCopy}`;
+        }
+
+        toast.classList.remove("show");
+        setTimeout(() => toast.classList.add("show"), 10);
+        clearTimeout(toast.hideTimeout);
+        toast.hideTimeout = setTimeout(() => {
+          toast.classList.remove("show");
+        }, 2500);
+      })
+      .catch(() => {
+        alert("Copy thất bại! Vui lòng thử lại.");
+      });
+  });
+
+  item.addEventListener("mouseenter", () => {
+    item.style.color = "#a0c4ff";
+    item.style.transform = "translateX(8px)";
+  });
+  item.addEventListener("mouseleave", () => {
+    item.style.color = "";
+    item.style.transform = "";
+  });
+});
