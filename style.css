@@ -35,6 +35,10 @@ header .profile {
   cursor: pointer;
   color: var(--primary);
 }
+
+header .profile {
+  color: #e5dfcb;
+}
 header .logo img {
   height: 46px;
 }
@@ -50,6 +54,12 @@ header .logo img {
   z-index: 2000;
   transition: left 0.35s ease;
   box-shadow: 5px 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar p {
+  margin: 1rem 0.5rem;
+  color: #acacac;
+  font-size: 75%;
 }
 .sidebar.show {
   left: 0;
@@ -1324,6 +1334,10 @@ header .logo img {
   gap: 1rem;
   font-size: 0.9rem;
   color: #64748b;
+}
+
+.footer-bottom a {
+  text-decoration: none;
 }
 
 .footer-bottom .heart {
