@@ -1,4 +1,3 @@
-// ========== SIDEBAR ==========
 const sidebar = document.getElementById("sidebar");
 const overlay = document.getElementById("overlay");
 const menuIcon = document.getElementById("menu-icon");
@@ -13,28 +12,24 @@ closeBtn.onclick = overlay.onclick = () => {
   overlay.classList.remove("show");
 };
 
-// ========== CAROUSEL ==========
 const carousel = document.getElementById("teamCarousel");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
 const realCards = [...carousel.children];
 const totalReal = realCards.length;
-const cardWidth = realCards[0].offsetWidth + 32; // 280 + gap 32px
+const cardWidth = realCards[0].offsetWidth + 32;
 
 let index = 0;
 let isAnimating = false;
 let autoPlay;
 
-// Duplicate all 7 cards
 realCards.forEach((card) => {
   carousel.appendChild(card.cloneNode(true));
 });
 
-// Reset position
 carousel.style.transform = `translateX(0)`;
 
-// Move function
 function slideTo(newIndex) {
   if (isAnimating) return;
   isAnimating = true;
@@ -43,7 +38,6 @@ function slideTo(newIndex) {
   carousel.style.transform = `translateX(-${cardWidth * newIndex}px)`;
 }
 
-// Transition end -> reset (if needed)
 carousel.addEventListener("transitionend", () => {
   if (index >= totalReal) {
     index = 0;
@@ -58,7 +52,6 @@ carousel.addEventListener("transitionend", () => {
   isAnimating = false;
 });
 
-// Navigation
 nextBtn.onclick = () => {
   if (isAnimating) return;
   index++;
@@ -73,7 +66,6 @@ prevBtn.onclick = () => {
   resetAutoPlay();
 };
 
-// Auto play
 function startAutoPlay() {
   autoPlay = setInterval(() => {
     index++;
@@ -85,7 +77,6 @@ function resetAutoPlay() {
   startAutoPlay();
 }
 
-// Hover
 document
   .querySelector(".team-container")
   .addEventListener("mouseenter", () => clearInterval(autoPlay));
@@ -95,7 +86,6 @@ document
 
 startAutoPlay();
 
-// Typewriter thing – TỐI ƯU BẰNG requestAnimationFrame
 const typewriter = document.querySelector(".typewriter");
 if (typewriter) {
   const text = typewriter.getAttribute("data-text");
@@ -111,7 +101,6 @@ if (typewriter) {
   requestAnimationFrame(typeStep);
 }
 
-// Cirle reveal anim + scroll
 const progressCircles = document.querySelectorAll(".circle-progress");
 
 const progressObserver = new IntersectionObserver(
@@ -124,7 +113,6 @@ const progressObserver = new IntersectionObserver(
         circle.style.strokeDashoffset = offset;
         entry.target.querySelector("span").textContent = percent + "%";
 
-        // Animate feature bubbles
         entry.target.closest(".feature-bubble")?.style &&
           setTimeout(() => {
             entry.target.closest(".feature-bubble").style.opacity = "1";
@@ -138,7 +126,6 @@ const progressObserver = new IntersectionObserver(
 );
 
 progressCircles.forEach((circle) => {
-  // SVG circle
   circle.innerHTML = `
     <svg width="80" height="80">
       <circle cx="40" cy="40" r="36" />
@@ -149,10 +136,6 @@ progressCircles.forEach((circle) => {
   progressObserver.observe(circle);
 });
 
-// Reveal animation
-const revealElements = document.querySelectorAll(
-  ".reveal-left, .reveal-right, .fade-up, .issue-list li"
-);
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -174,44 +157,13 @@ const revealObserver = new IntersectionObserver(
 
 document
   .querySelectorAll(
-    ".reveal-left, .reveal-right, .fade-up, .issue-list li, .final-message"
-  )
-  .forEach((el) => {
-    revealObserver.observe(el);
-  });
-
-revealElements.forEach((el) => revealObserver.observe(el));
-
-//========== GOAL ==========
-
-document
-  .querySelectorAll(
     ".reveal-left, .reveal-right, .fade-up, .issue-list li, .final-message, .reveal-fade"
   )
   .forEach((el) => {
     revealObserver.observe(el);
   });
 
-const goalCards = document.querySelectorAll(".goal-card");
-
-const goalObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add("revealed");
-        }, i * 150); // stagger effect – từng cái hiện lần lượt
-        goalObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.2 }
-);
-
-goalCards.forEach((card) => goalObserver.observe(card));
-
 const finalGoalMessage = document.querySelector(".final-goal-message");
-
 if (finalGoalMessage) {
   const finalObserver = new IntersectionObserver(
     (entries) => {
@@ -219,7 +171,7 @@ if (finalGoalMessage) {
         if (entry.isIntersecting) {
           setTimeout(() => {
             entry.target.classList.add("revealed");
-          }, 300); // delay nhẹ cho đẹp
+          }, 300);
           finalObserver.unobserve(entry.target);
         }
       });
@@ -230,7 +182,6 @@ if (finalGoalMessage) {
   finalObserver.observe(finalGoalMessage);
 }
 
-// ===== CONTACT SECTION REVEAL =====
 const contactContent = document.querySelector(".contact-content");
 if (contactContent) {
   const contactObserver = new IntersectionObserver(
@@ -247,7 +198,6 @@ if (contactContent) {
   contactObserver.observe(contactContent);
 }
 
-// ===== CLICK TO COPY INFO ITEMS + TOAST NOTIFICATION =====
 document.querySelectorAll(".info-item").forEach((item) => {
   item.style.cursor = "pointer";
   item.style.transition = "all 0.3s ease";
@@ -292,3 +242,14 @@ document.querySelectorAll(".info-item").forEach((item) => {
     item.style.transform = "";
   });
 });
+
+const videoOverlay = document.getElementById("video-play-overlay");
+const videoWrapper = document.querySelector(".video-wrapper");
+const iframe = document.getElementById("intro-video");
+
+if (videoOverlay && iframe) {
+  videoOverlay.addEventListener("click", () => {
+    iframe.src += "&autoplay=1";
+    videoWrapper.classList.add("video-playing");
+  });
+}

@@ -35,12 +35,14 @@ header .profile {
   cursor: pointer;
   color: var(--primary);
 }
-
-header .profile {
-  color: #e5dfcb;
-}
 header .logo img {
-  height: 46px;
+  height: 88px;
+  margin: -30px 0;
+  transition: transform 0.3s ease;
+}
+
+header .logo img:hover {
+  transform: scale(1.08);
 }
 
 .sidebar {
@@ -54,12 +56,6 @@ header .logo img {
   z-index: 2000;
   transition: left 0.35s ease;
   box-shadow: 5px 0 25px rgba(0, 0, 0, 0.15);
-}
-
-.sidebar p {
-  margin: 1rem 0.5rem;
-  color: #acacac;
-  font-size: 75%;
 }
 .sidebar.show {
   left: 0;
@@ -85,6 +81,11 @@ header .logo img {
   background: var(--accent);
   color: white;
 }
+.sidebar p {
+  margin: 1rem 0.5rem;
+  color: #acacac;
+  font-size: 75%;
+}
 
 .overlay.show {
   display: block;
@@ -109,7 +110,6 @@ header .logo img {
   color: white;
   overflow: hidden;
 }
-
 .hero::before {
   content: "";
   position: absolute;
@@ -122,7 +122,6 @@ header .logo img {
   z-index: -2;
   transform: scale(1.1);
 }
-
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -134,14 +133,12 @@ header .logo img {
   );
   z-index: -1;
 }
-
 .hero-content {
   position: relative;
   z-index: 1;
   max-width: 1000px;
   padding: 2rem;
 }
-
 .hero h1 {
   font-family: "Merriweather", serif;
   font-size: 4.5rem;
@@ -149,14 +146,12 @@ header .logo img {
   margin-bottom: 1.2rem;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
-
 .hero p {
   font-size: 1.45rem;
   margin-bottom: 2.8rem;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
   opacity: 0.95;
 }
-
 .cta-btn {
   display: inline-block;
   padding: 1.2rem 3rem;
@@ -169,12 +164,68 @@ header .logo img {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   transition: all 0.4s ease;
 }
-
 .cta-btn:hover {
   background: var(--accent);
   color: white;
   transform: translateY(-5px);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.video-intro {
+  padding: 8rem 2rem;
+  background: linear-gradient(135deg, #f8f9fc 0%, #eef4fa 100%);
+  text-align: center;
+}
+.video-title {
+  font-family: "Merriweather", serif;
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+.video-desc {
+  font-size: 1.3rem;
+  color: #555;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.video-wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+}
+.video-wrapper iframe {
+  width: 100%;
+  height: 560px;
+  border: none;
+}
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.6s ease;
+}
+.video-overlay i {
+  font-size: 5rem;
+  color: white;
+  opacity: 0.9;
+  transition: all 0.4s ease;
+}
+.video-overlay:hover i {
+  transform: scale(1.15);
+  opacity: 1;
+}
+.video-playing .video-overlay {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .features {
@@ -229,7 +280,6 @@ header .logo img {
   font-size: 1.15rem;
   color: #555;
 }
-
 .team-container {
   position: relative;
   max-width: 1300px;
@@ -246,7 +296,6 @@ header .logo img {
   gap: 2rem;
   transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .team-card {
   flex: 0 0 280px;
   height: 370px;
@@ -264,7 +313,6 @@ header .logo img {
   height: 100%;
   object-fit: cover;
 }
-
 .team-overlay {
   position: absolute;
   inset: 0;
@@ -274,15 +322,6 @@ header .logo img {
     rgba(109, 148, 197, 0.4) 50%,
     rgba(109, 148, 197, 0.8) 100%
   );
-
-  background: linear-gradient(
-    135deg,
-    rgba(109, 148, 197, 0.1) 0%,
-    rgba(109, 148, 197, 0.5) 100%
-  );
-  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-
   color: white;
   padding: 2rem 1.5rem;
   display: flex;
@@ -294,12 +333,10 @@ header .logo img {
   transition: opacity 0.5s ease, visibility 0.5s ease;
   backdrop-filter: blur(1px);
 }
-
 .team-card:hover .team-overlay {
   opacity: 1;
   visibility: visible;
 }
-
 .team-overlay h3 {
   font-family: "Merriweather", serif;
   font-size: 1.5rem;
@@ -307,22 +344,16 @@ header .logo img {
   margin: 0 0 0.4rem 0;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
-
 .team-overlay p {
   font-size: 1.05rem;
   margin: 0;
   opacity: 0.95;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
-
-.team-card:hover {
-  transform: scale(1.08);
-}
 .team-card:hover img {
   transform: scale(1.12);
   transition: transform 0.6s ease;
 }
-
 .nav-arrow {
   position: absolute;
   top: 50%;
@@ -385,14 +416,29 @@ header .logo img {
   }
 }
 
-/* ===================== INTRODUCTION ===================== */
+@media (max-width: 768px) {
+  .video-intro {
+    padding: 6rem 1.5rem;
+  }
+  .video-title {
+    font-size: 2.5rem;
+  }
+  .video-wrapper iframe {
+    height: 400px;
+  }
+}
+@media (max-width: 480px) {
+  .video-wrapper iframe {
+    height: 300px;
+  }
+}
+
 .intro-interactive {
   padding: 10rem 2rem 8rem;
   background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
   position: relative;
   overflow: hidden;
 }
-
 .intro-interactive::before {
   content: "";
   position: absolute;
@@ -402,7 +448,6 @@ header .logo img {
   background-size: cover;
   pointer-events: none;
 }
-
 .intro-heading {
   text-align: center;
   margin-bottom: 6rem;
@@ -438,7 +483,6 @@ header .logo img {
   opacity: 0;
   animation: fadeUp 1s 1.5s forwards;
 }
-
 .intro-wrapper {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -447,7 +491,6 @@ header .logo img {
   max-width: 1300px;
   margin: 0 auto;
 }
-
 .problem-card,
 .solution-card {
   background: white;
@@ -456,7 +499,6 @@ header .logo img {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
 }
-
 .card-header {
   display: flex;
   align-items: center;
@@ -482,7 +524,6 @@ header .logo img {
     transform: translateY(-12px);
   }
 }
-
 .issue-list {
   list-style: none;
   margin: 2rem 0;
@@ -502,7 +543,6 @@ header .logo img {
   color: #d94c5c;
   font-size: 1.4rem;
 }
-
 .quote-box {
   margin: 3rem 0;
   padding: 2rem;
@@ -522,8 +562,6 @@ header .logo img {
   color: var(--hero);
   font-weight: 600;
 }
-
-/* Giải pháp bên phải */
 .features-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -574,7 +612,6 @@ header .logo img {
   font-weight: 700;
   color: var(--hero);
 }
-
 .feature-title {
   display: block;
   font-size: 1.15rem;
@@ -583,15 +620,12 @@ header .logo img {
   margin: 1rem 0 0.4rem;
   line-height: 1.3;
 }
-
 .feature-bubble small {
   display: block;
   color: #666;
   font-size: 0.92rem;
   line-height: 1.5;
 }
-
-/* Scroll slide-in animation */
 .reveal-left {
   opacity: 0;
   transform: translateX(-80px);
@@ -606,7 +640,6 @@ header .logo img {
   transform: translateX(0);
   transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
 .final-message {
   text-align: center;
   font-size: 1.45rem;
@@ -623,13 +656,11 @@ header .logo img {
   position: relative;
   z-index: 10;
 }
-
 .final-message.active {
   opacity: 1;
   transform: translateY(0);
   transition: all 1.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
 .final-message .highlight {
   color: var(--hero);
   font-weight: 700;
@@ -637,14 +668,11 @@ header .logo img {
   padding: 0 6px;
   border-radius: 6px;
 }
-
-/* Overlap proof */
 .solution-card {
   position: relative;
   overflow: visible !important;
 }
 
-/* Responsive */
 @media (max-width: 992px) {
   .intro-wrapper {
     grid-template-columns: 1fr;
@@ -680,7 +708,6 @@ header .logo img {
   }
 }
 
-/* ===================== GOALS SECTION ===================== */
 .goals-section {
   padding: 10rem 2rem 8rem;
   background: linear-gradient(135deg, #f8faff 0%, #eef4ff 100%);
@@ -932,7 +959,6 @@ header .logo img {
   }
 }
 
-/* ===================== CONTACT SECTION  ===================== */
 .contact-section {
   padding: 10rem 2rem 8rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -940,7 +966,6 @@ header .logo img {
   overflow: hidden;
   color: white;
 }
-
 .contact-section::before {
   content: "";
   position: absolute;
@@ -950,7 +975,6 @@ header .logo img {
   background-size: cover;
   pointer-events: none;
 }
-
 .contact-wrapper {
   max-width: 1300px;
   margin: 0 auto;
@@ -959,18 +983,15 @@ header .logo img {
   gap: 4rem;
   align-items: center;
 }
-
 .contact-content {
   opacity: 0;
   transform: translateY(50px);
   transition: all 1.2s ease;
 }
-
 .contact-content.revealed {
   opacity: 1;
   transform: translateY(0);
 }
-
 .contact-content h2 {
   font-family: "Merriweather", serif;
   font-size: 3.4rem;
@@ -980,18 +1001,15 @@ header .logo img {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
 .contact-subtitle {
   font-size: 1.35rem;
   line-height: 1.8;
   margin-bottom: 2.5rem;
   opacity: 0.95;
 }
-
 .contact-info {
   margin-bottom: 3rem;
 }
-
 .info-item {
   display: flex;
   align-items: center;
@@ -1001,17 +1019,14 @@ header .logo img {
   padding: 0.8rem 0;
   transition: all 0.4s ease;
 }
-
 .info-item:hover {
-  transform: translateX(10px);
   color: #a0c4ff;
+  transform: translateX(10px);
 }
-
 .info-item i {
   font-size: 1.6rem;
   color: #a0c4ff;
 }
-
 .contact-cta-btn {
   display: inline-flex;
   align-items: center;
@@ -1028,7 +1043,6 @@ header .logo img {
   position: relative;
   overflow: hidden;
 }
-
 .contact-cta-btn::before {
   content: "";
   position: absolute;
@@ -1042,77 +1056,66 @@ header .logo img {
   transform: translateX(-100%);
   transition: transform 0.6s;
 }
-
 .contact-cta-btn:hover {
   transform: translateY(-8px) scale(1.05);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
   color: white;
   background: #a0c4ff;
 }
-
 .contact-cta-btn:hover i {
   transform: scale(1.3);
   color: white;
 }
-
 .contact-cta-btn:hover::before {
   transform: translateX(100%);
 }
-
 .contact-cta-btn i {
   font-size: 1.8rem;
   transition: all 0.4s ease;
 }
-
-/* Floating cards animation */
 .contact-visual {
   position: relative;
-  height: 460px;
+  height: 420px;
   border-radius: 28px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
 }
-
 .floating-card {
   position: absolute;
   width: 90px;
   height: 90px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.6rem;
+  font-size: 2.5rem;
   color: white;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  pointer-events: none; /* không cho click/kéo */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
   animation: floatRandom 18s infinite linear;
-  will-change: transform;
 }
-
 .floating-card i {
   animation: rotateRandom 12s infinite linear;
 }
-
 .floating-card.card-1 {
-  top: 12%;
-  left: 14%;
+  top: 10%;
+  left: 15%;
   animation: float1 20s infinite ease-in-out;
 }
 .floating-card.card-2 {
-  top: 48%;
-  right: 12%;
+  top: 50%;
+  right: 10%;
   animation: float2 24s infinite ease-in-out;
 }
 .floating-card.card-3 {
-  bottom: 18%;
-  left: 28%;
+  bottom: 15%;
+  left: 25%;
   animation: float3 22s infinite ease-in-out;
 }
-
 @keyframes float1 {
   0%,
   100% {
@@ -1158,7 +1161,6 @@ header .logo img {
     transform: translate(-40px, 40px) rotate(320deg);
   }
 }
-
 @keyframes rotateRandom {
   from {
     transform: rotate(0deg);
@@ -1167,30 +1169,31 @@ header .logo img {
     transform: rotate(360deg);
   }
 }
-
-/* Responsive */
 @media (max-width: 992px) {
-  .contact-visual {
-    height: 380px;
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
-  .floating-card {
-    width: 80px;
-    height: 80px;
-    font-size: 2.3rem;
+  .contact-visual {
+    height: 300px;
+  }
+  .contact-content h2 {
+    font-size: 2.8rem;
   }
 }
-@media (max-width: 480px) {
-  .contact-visual {
-    height: 320px;
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 8rem 1.5rem;
   }
-  .floating-card {
-    width: 70px;
-    height: 70px;
-    font-size: 2rem;
+  .contact-content h2 {
+    font-size: 2.5rem;
+  }
+  .contact-cta-btn {
+    padding: 1.1rem 2.2rem;
+    font-size: 1.15rem;
   }
 }
 
-/* ===================== COPY TO CLIPBOARD TOAST ===================== */
 .copy-toast {
   position: fixed;
   bottom: 30px;
@@ -1212,17 +1215,14 @@ header .logo img {
   align-items: center;
   gap: 0.8rem;
 }
-
 .copy-toast.show {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
-
 .copy-toast i {
   font-size: 1.4rem;
   animation: tick 0.6s ease-in-out;
 }
-
 @keyframes tick {
   0% {
     transform: scale(0) rotate(-45deg);
@@ -1235,7 +1235,6 @@ header .logo img {
   }
 }
 
-/* ===================== FOOTER MINIMAL ===================== */
 .footer-minimal {
   background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
   color: #cbd5e1;
@@ -1244,7 +1243,6 @@ header .logo img {
   position: relative;
   overflow: hidden;
 }
-
 .footer-minimal::before {
   content: "";
   position: absolute;
@@ -1265,7 +1263,6 @@ header .logo img {
     background-position: 100% 50%;
   }
 }
-
 .footer-content {
   max-width: 1300px;
   margin: 0 auto;
@@ -1275,7 +1272,6 @@ header .logo img {
   flex-wrap: wrap;
   gap: 2rem;
 }
-
 .footer-left {
   display: flex;
   align-items: center;
@@ -1296,7 +1292,6 @@ header .logo img {
   color: #94a3b8;
   max-width: 320px;
 }
-
 .footer-right {
   display: flex;
   gap: 1rem;
@@ -1313,7 +1308,6 @@ header .logo img {
   color: #e2e8f0;
   transition: all 0.4s ease;
   backdrop-filter: blur(6px);
-  margin: 0.5rem 0.5rem;
 }
 .footer-right a:hover {
   background: #6d94c5;
@@ -1321,7 +1315,6 @@ header .logo img {
   transform: translateY(-5px) scale(1.15);
   box-shadow: 0 10px 25px rgba(109, 148, 197, 0.4);
 }
-
 .footer-bottom {
   max-width: 1300px;
   margin: 2rem auto 0;
@@ -1335,11 +1328,6 @@ header .logo img {
   font-size: 0.9rem;
   color: #64748b;
 }
-
-.footer-bottom a {
-  text-decoration: none;
-}
-
 .footer-bottom .heart {
   color: #f43f5e;
   animation: heartbeat 1.8s infinite;
@@ -1353,7 +1341,6 @@ header .logo img {
     transform: scale(1.3);
   }
 }
-
 .legal-links a {
   color: #94a3b8;
   text-decoration: none;
@@ -1362,8 +1349,6 @@ header .logo img {
 .legal-links a:hover {
   color: white;
 }
-
-/* Responsive */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
@@ -1381,7 +1366,6 @@ header .logo img {
     text-align: center;
   }
 }
-
 @media (max-width: 480px) {
   .footer-minimal {
     padding: 2.5rem 1.5rem 1.5rem;
