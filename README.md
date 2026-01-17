@@ -1,6 +1,6 @@
-# ULIS StudyHub (Work in Progress)
+# ULIS StudyHub
 
-This project is currently **under development**, and many features are still being implemented.
+This project is currently **finished**, so this repo will be archive since I don't think I will implement new feature to this site.
 
 ## 🚧 Status
 - Work in progress
